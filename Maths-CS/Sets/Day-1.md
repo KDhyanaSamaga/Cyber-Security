@@ -25,6 +25,7 @@ B = {a,e,i,o,u}
 ---
 
 ### Basic Set Operations
+![Venn Diagram](https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQjQ93Haq4EBHkwO6JKpDeyPpmt7yNs4zWWeN3Ng1bHZW3-PyXBlF7V1Ja32kdEXIR16-UupXoQ00yQCrc)
 - **Union ($A \cup B$):** All elements from both sets combined.
   - Example: $\{1, 2, 3\} \cup \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$
 - **Intersection ($A \cap B$):** Only elements present in both sets.
