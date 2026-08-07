@@ -1,4 +1,6 @@
-# Question: A
+# Lab Date : /08/2026
+---
+## Question: A
 
 Create two $3 \times 3$ matrices using NumPy and print them. Perform and print the results of the following linear algebra operations:
 
@@ -10,7 +12,7 @@ Create two $3 \times 3$ matrices using NumPy and print them. Perform and print t
 4. **Matrix Transpose**
 5. **Determinant and Inverse** (if applicable)
 ---
-# Question: B
+## Question: B
 
 Create a Series from a list of integers representing daily temperatures (in Celsius) over a week. Assign index labels as day of the week. 
 
@@ -20,7 +22,7 @@ Create a Series from a list of integers representing daily temperatures (in Cels
 4. **Convert all temperatures to Fahrenheit.**
 5. **Print the days had temperatures above the average**
 ---
-# Question: C
+## Question: C
 
 Create a data frame with details of 10 students and columns as Roll Number, Name, Gender, Marks1, Marks2, Marks3.
 
