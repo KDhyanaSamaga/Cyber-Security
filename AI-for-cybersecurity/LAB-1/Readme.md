@@ -1,9 +1,12 @@
-# Create the Virtual Env.
+# Date : /08/2026
+# Last Date : 12/08/2026
+---
+## Create the Virtual Env.
 ```bash
 python -m venv .venv
 ```
 
-# Activate the Virtual Env.
+## Activate the Virtual Env.
 In windows
 ```bash
 .venv\Scripts\activate
@@ -13,12 +16,12 @@ In Linux/Mac
 source .venv\bin\activate
 ```
 
-# Install the requirements
+## Install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
-# Run the code
+## Run the code
 ```bash
 python question_a.py
 python question_b.py
