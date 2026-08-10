@@ -1,8 +1,10 @@
 # Install for GNS in your System
-[Reference]:https://docs.gns3.com/docs/getting-started/installation/linux
-1.Search GNS3 in browser
-2.Open the documentation in that navigate to Debian-based distributions section
-3.Open the termainal
+[Reference](https://docs.gns3.com/docs/getting-started/installation/linux)
+
+1. Search **GNS3** in the browser.
+2. Open the **GNS3 documentation** and navigate to the **Debian-based distributions** section.
+3. Open the **Terminal**.
+
 ### Step 4:
 ```bash 
 sudo apt update
