@@ -1,6 +1,9 @@
-# Caesar cipher
+# 1. Caesar cipher
+
 **File Name**:**caesar.py**
+
 ### Code
+
 ```python
 def caesar_cipher_encryption(plain_text,key):
     # c = (p+k)mod26
@@ -36,7 +39,7 @@ def caesar_cipher():
         caesar_cipher()
     encryption = caesar_cipher_encryption(plain_text,key)
     print(f"Encryption of {plain_text} : {encryption}")
-    
+
     cipher_text = input("Enter the cipher text: ")
     key = int(input("Enter the key: "))
     decryption = caesar_cipher_decryption(cipher_text,key)
@@ -45,14 +48,19 @@ def caesar_cipher():
 
 caesar_cipher()
 ```
+
 ### Output
+
 <img src="photo/caesar.png" width="600" height="300" alt="Resized Image">
 
 ---
 
-# Vigener Cipher
+# 2.Vigener Cipher
+
 **File Name** : vigener.py
+
 ### Code
+
 ```python
 def vigener_cipher_encryption(plain_text,key):
     cipher_text = ""
@@ -102,7 +110,7 @@ def vigener_cipher():
         vigener_cipher()
     encryption = vigener_cipher_encryption(plain_text,key)
     print(f"Encryption of {plain_text} : {encryption}")
-        
+
     cipher_text = input("Enter the cipher text: ")
     key = input("Enter the key: ")
     decryption = vigener_cipher_decryption(cipher_text,key)
@@ -111,19 +119,24 @@ def vigener_cipher():
 
 vigener_cipher()
 ```
+
 ### Output
+
 <img src="photo/vigener.png" width="600" height="300" alt="Resized Image">
 
-
 ---
-# Affine Cipher
+
+# 3.Affine Cipher
+
 **File Name : affine.py**
+
 ### Code
+
 ```python
 def affine_cipher_decryption(cipher_text, key1, key2):
     plain_text = ""
     cipher_text = cipher_text.lower()
-    
+
     for char in cipher_text:
         if char.isalpha():
             char_ord_num = ord(char) - ord('a')
@@ -131,7 +144,7 @@ def affine_cipher_decryption(cipher_text, key1, key2):
             plain_text += chr(temp + ord('a'))
         else:
             plain_text += char
-            
+
     return plain_text
 
 def affine_cipher_encryption(plain_text,key1,key2):
@@ -164,18 +177,45 @@ def affine_cipher():
 
 affine_cipher()
 ```
+
 ### Output
+
 <img src="photo/affine.png" width="600" height="300" alt="Resized Image">
 
 ---
 
-# Hill Cipher
+# 4.Hill Cipher
+
 ### Code
+
 ```python
-def hill_cipher_decryption():
-    
+import numpy as np
+from sympy import  Matrix
+
+def hill_cipher_decryption(cipher_text,key):
+    det = int(np.linalg.det(key))
+    key = Matrix(key)
+    adj_key = key.adjugate() #inbuilt function for adjoint of the matrix else loop through
+    det_inverse = pow(det,-1,26)
+    new_key = (det_inverse * adj_key)
+
+    for i in range(new_key.rows):
+        for j in range(new_key.cols):
+            if new_key[i,j]<0:
+                new_key[i,j] = new_key[i,j]+26
+
+    new_key = new_key.tolist()
+    decryption = hill_cipher_encryption(
+        cipher_text,
+        new_key,
+        len(new_key)
+    )
+    decryption = decryption.replace('x',"")
+
+    return decryption
+
 def hill_cipher_encryption(plain_text,key,size):
-   
+
     if len(plain_text)%size == 0:
         pass
     else:
@@ -193,12 +233,12 @@ def hill_cipher_encryption(plain_text,key,size):
 
     for i in range(0,len(ord_list),size):
         plain_vector = ord_list[i : i + size]
-        
+
         for r in range(size):
             total = 0
             for c in range(size):
                 total += key[r][c] * plain_vector[c]
-                
+
             cipher_text += chr((total % 26) + ord('a'))
 
     return cipher_text
@@ -226,4 +266,88 @@ def hill_cipher():
 
 hill_cipher()
 ```
+
 ### Output
+
+<img src="photo/affine.png" width="600" height="300" alt="Resized Image">
+
+---
+
+# 5.Multiplicative Cipher
+
+**File Name : multiplicative.py**
+
+```python
+def get_key_inverse(key):
+    if key<1:
+        exit()
+    else:
+        key_inverse = None
+        for i in range(1,26):
+            if(key*i)%26==1:
+                key_inverse = i
+                break
+    return key_inverse
+
+def multiplicative_cipher_decryption(cipher_text,key):
+    plain_text = ""
+    inverse_key = get_key_inverse(key)
+    cipher_text = cipher_text.lower()
+
+    for char in cipher_text:
+        if char.isalpha():
+            ord_num = ord(char) - ord('a')
+            temp = (ord_num*inverse_key)%26
+            plain_text = plain_text + chr(temp + ord('a'))
+        else:
+            plain_text = plain_text + char
+
+    return plain_text
+
+
+def multiplicative_cipher_encryption(plain_text,key):
+    cipher_text = ""
+    for char in plain_text:
+        if char.isalpha():
+            ord_num = ord(char) - ord('a')
+            temp = (ord_num*key)%26
+            cipher_text = cipher_text + chr(temp + ord('a'))
+        else:
+            cipher_text = cipher_text + char
+
+    return cipher_text
+
+def multiplicative_cipher():
+    plain_text = input("Enter the plain text: ")
+    key = int(input("Enter the key: "))
+
+    encryption = multiplicative_cipher_encryption(plain_text,key)
+    print(f"Encryption of {plain_text} : {encryption}")
+
+    cipher_text = input("Enter the cipher text: ")
+    key1 = int(input("Enter the key: "))
+    decryption = multiplicative_cipher_decryption(cipher_text,key1)
+    print(f"Decryption of {cipher_text} : {decryption}")
+
+multiplicative_cipher()
+```
+
+### Output
+
+<img src="photo/affine.png" width="600" height="300" alt="Resized Image">
+
+---
+
+# 6.Play Fair Cipher
+
+**File Name : play_fair.py**
+
+```python
+
+```
+
+### Output
+
+<img src="photo/affine.png" width="600" height="300" alt="Resized Image">
+
+---
