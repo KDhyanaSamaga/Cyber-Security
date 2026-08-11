@@ -1,5 +1,29 @@
-def hill_cipher_decryption():
-    
+import numpy as np
+from sympy import  Matrix
+
+def hill_cipher_decryption(cipher_text,key):
+    det = int(np.linalg.det(key))
+    key = Matrix(key)
+    adj_key = key.adjugate() #inbuilt function for adjoint of the matrix else loop through 
+    det_inverse = pow(det,-1,26)
+    new_key = (det_inverse * adj_key)
+
+    for i in range(new_key.rows):
+        for j in range(new_key.cols):
+            if new_key[i,j]<0:
+                new_key[i,j] = new_key[i,j]+26
+
+    new_key = new_key.tolist()
+    decryption = hill_cipher_encryption(
+        cipher_text,
+        new_key,
+        len(new_key)
+    )
+    decryption = decryption.replace('x',"")
+
+    return decryption
+
+
 def hill_cipher_encryption(plain_text,key,size):
    
     if len(plain_text)%size == 0:
@@ -48,5 +72,21 @@ def hill_cipher():
     print(f"Key : {key}")
     encryption = hill_cipher_encryption(plain_text,key,row)
     print(f"Encryption of {plain_text} : {encryption}")
+
+    cipher_text = input("Enter the cipher text: ")
+    row1 = int(input("Size of row"))
+    column1 = int(input("SIze of column"))
+    if(row1 != column1):
+        print("THE ROW AND COLUMN MUST BE SAME IN HILL CIPHER")
+        hill_cipher()
+
+    key1 = []
+    for i in range(row1):
+        c = []
+        for j in range(column1):
+            c.append(int(input()))
+        key1.append(c)
+    decryption = hill_cipher_decryption(cipher_text,key1)
+    print(f"Encryption of {cipher_text} : {decryption}")
 
 hill_cipher()
