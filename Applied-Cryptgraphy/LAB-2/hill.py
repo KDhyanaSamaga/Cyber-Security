@@ -50,5 +50,3 @@ def hill_cipher():
     print(f"Encryption of {plain_text} : {encryption}")
 
 hill_cipher()
-
-hill_cipher()
