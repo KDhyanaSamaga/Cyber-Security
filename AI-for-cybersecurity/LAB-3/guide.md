@@ -21,8 +21,13 @@ source .venv/bin/activate
 ```
 
 # Install the Library
+## If Windows
 ```bash
 pip install -r requirements.txt
+```
+## If Linux/Mac
+```bash
+pip3  install -r requirements.txt
 ```
 
 # Run the Main File
