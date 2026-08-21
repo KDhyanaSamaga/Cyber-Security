@@ -1,27 +1,3 @@
-Chat ID: 6547885190
-8450849961:AAFcZejoVCRaFIZ0GNSHWaV9f04MIt5A4RE
-
-sudo apt update
-sudo apt install -y rkhunter chkrootkit
-sudo rkhunter --update
-sudo rkhunter --check --sk
-sudo chkrootkit
-file /bin/ls
-strings /bin/ls | less
-sha256sum /bin/ls or sha256sum /bin/ls > ls.sha256
-git clone https://github.com/technicaldada/pentbox
-cd pentbox
-ls
-cd pentbox-1.8/
-ls
-ruby ./pentbox.rb
-
-select option 2 for network tool
-select 3 for honey pot
-seklect 1 for fast auto configuration
-
-then open a new temainal then start nc 127.0.0.1 80
-
 # 1. Update the APT package index
 
 ```bash
