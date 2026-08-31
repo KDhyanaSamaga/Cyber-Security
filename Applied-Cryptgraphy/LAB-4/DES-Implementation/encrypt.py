@@ -1,7 +1,7 @@
 
 import binary
 import permutation
-
+import padding
 
 def encrypt_text(plain_text,key):
     if len(plain_text)==0 or len(key)==0:
@@ -16,6 +16,11 @@ def encrypt_text(plain_text,key):
 
     initial_permutation = permutation.initial_permutation_table(binary_text)
     print(f"The result of initial permutation from {binary_text}:{initial_permutation}\n")
+
+    binary_key = binary.convert_binary(key)
+    print(f"The key {key}: {binary_key}")
+    pad_key = padding.padding_key(binary_key)
+    print(f"Padded Key: {pad_key}")
 
     for block_number, block in enumerate(initial_permutation, start=1):
         L0 = block[:32]

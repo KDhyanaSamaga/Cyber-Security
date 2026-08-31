@@ -41,3 +41,5 @@ def expansion_permutation(right_half):
         expanded_block.append(bit)
 
     return expanded_block
+
+def key_scheduler()

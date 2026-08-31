@@ -16,3 +16,16 @@ def padding_to_binary(binary_text):
         all_blocks.append(block_ints)
 
     return all_blocks
+
+def padding_key(binary_key):
+    binary_key = "".join(binary_key.split())
+    chunk_size = 64
+
+    if len(binary_key) < chunk_size:
+            binary_key = binary_key + "0" * (chunk_size - len(binary_key))
+            
+    elif len(binary_key) > chunk_size:
+            binary_key = binary_key[:chunk_size]
+
+    return [int(b) for b in binary_key]
+
