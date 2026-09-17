@@ -258,9 +258,7 @@ $$
 Logistic regression assumes:
 
 $$
-\ln\left(\frac{P}{1-P}\right)
-=
-\beta_0+\beta_1X_1+\cdots+\beta_nX_n
+\ln\left(\frac{P}{1 - P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_n X_n
 $$
 
 This is one of the most important equations to understand.
