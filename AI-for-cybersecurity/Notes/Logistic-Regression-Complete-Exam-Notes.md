@@ -48,13 +48,11 @@ $$
 
 where:
 
-* \(\beta_0\) = intercept
-* \(\beta_1,\beta_2\) = model coefficients
-* \(X_1,X_2\) = input features
-* \(z\) = linear score
-
-However, \(z\) can have any value:
-
+* $\beta_0$ = intercept
+* $\beta_1, \beta_2$ = model coefficients
+* $X_1, X_2$ = input features
+* $z$ = linear score
+* 
 ```text
 -∞  --------  0  --------  +∞
 ```
