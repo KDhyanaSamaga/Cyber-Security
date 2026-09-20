@@ -1,11 +1,3 @@
-This diagram illustrates a **traditional, legacy perimeter-based enterprise architecture** transitioning into or incorporating security controls that support a **Zero Trust Architecture (ZTA)**.
-
-In a pure **Zero Trust Architecture**, the fundamental philosophy is **"Never Trust, Always Verify."** Network location alone (being inside the internal network) does not grant trust. Every user, device, and request must be explicitly authenticated, authorized, continuously validated, and granted least-privileged access before accessing resources.
-
-Below is a detailed breakdown of every component in the diagram, explaining **what it is**, **why it is used**, and **what it does**, structured through the lens of Zero Trust.
-
----
-
 ## 1. Users & External Entities
 
 * **Employee**:
